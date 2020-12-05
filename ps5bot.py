@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.options import Options
 from fake_useragent import UserAgent
 import time
 import random
+import subprocess
 
 start_time = time.time()
 n = 0
@@ -22,17 +23,18 @@ while True:
     print("--- This mf been running for %s seconds and %s iterations ---" % (time.time() - start_time, str(n)))
 
     driver_walmart.get(url)
-    time.sleep(10)
+    time.sleep(5)
     try:
         get_in_stock_button = driver_walmart.find_element_by_xpath("//*[contains(text(), '" + text + "')]")
     except(Exception):
         print("LETS GOOOOOOOOOOOOOOOOOO")
         break
-    
+
     time.sleep(random.randint(5, 10))
     driver_walmart.quit()
 
-driver_walmart.get("https://www.youtube.com/watch?v=QwbpOltPRic&t=1s&ab_channel=BaconAkin")
+subprocess.Popen(['mpg123', '-q', './3pac.mp3']).wait()
+
 #        .-""""-.        .-""""-.
 #       /        \      /        \
 #      /_        _\    /_        _\
